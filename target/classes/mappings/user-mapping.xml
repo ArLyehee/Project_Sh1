@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="userMemberDAO">
+
+	<insert id="insertUser">
+		<![CDATA[
+			INSERT INTO usermember(id, pwd, zip_num, name, email, address, address2, phone)
+			VALUES(#{id}, #{pwd}, #{zip_num}, #{name},#{email}, #{address}, #{address2}, #{phone})
+		]]>
+	</insert>
+	<select id="getMember" resultType="user">
+		<![CDATA[
+			SELECT * FROM usermember WHERE id = #{id} and pwd= #{pwd}
+		]]>
+	</select>
+	<select id="confirmID" resultType="String" parameterType="user">
+		<![CDATA[
+			SELECT id FROM usermember WHERE id = #{id}
+		]]>
+	</select>
+	<select id="memberInfo" resultType="user">
+		<![CDATA[
+			SELECT * FROM usermember WHERE id = #{id}
+		]]>
+	</select>
+	<update id="updateUser" parameterType="String">
+		<![CDATA[
+			UPDATE usermember 
+			SET email = #{email}, 
+				address = #{address},
+				address2 = #{address2},
+				phone = #{phone}
+			WHERE
+				id = #{id}
+		]]>
+	</update>
+	<select id="memberList" resultType="user">
+		<![CDATA[
+			SELECT * FROM usermember ORDER BY id DESC
+		]]>
+	</select>
+</mapper>

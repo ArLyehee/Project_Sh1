@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="OrderDAO">
+	
+	<insert id="insertOrder">
+		<![CDATA[
+			INSERT INTO orders (oseq, id) VALUES(#{oseq}, #{id})
+		]]>
+	</insert>
+	<select id="selectMaxOseq" resultType="int">
+		<![CDATA[
+			SELECT max(oseq)+1 FROM orders
+		]]>
+	</select>
+	<insert id="insertOrderDetail">
+		<![CDATA[
+			INSERT INTO order_detail(odseq, oseq, pseq, quantity) 
+			VALUES(order_detail_seq.nextval, #{oseq}, #{pseq}, #{quantity})
+		]]>
+	</insert>
+	<select id="listOrderById" resultType="order">
+		<![CDATA[
+			SELECT * 
+			FROM order_view 
+			WHERE id = #{id} AND result LIKE '%' ||#{result}||'%' and oseq= #{oseq}
+		]]>
+	</select>
+	<select id="selectSeqOrdering" resultType="int">
+		<![CDATA[
+			SELECT DISTINCT oseq 
+			FROM order_view 
+			WHERE id=#{id} ORDER BY oseq DESC
+		]]>
+	</select>
+	<select id="getOrderList" resultType="order">
+		<![CDATA[
+			SELECT * FROM order_view ORDER BY oseq DESC
+		]]>
+	</select>
+</mapper>

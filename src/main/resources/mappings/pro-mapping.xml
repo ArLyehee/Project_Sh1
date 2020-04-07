@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="productDAO">
+
+	<select id="getProduct" parameterType="int" resultType="product">
+		<![CDATA[
+		SELECT * FROM product
+		WHERE pseq = #{pseq}
+		]]>
+	</select>
+	
+	<insert id="insertProduct">
+		<![CDATA[
+			INSERT INTO product(pseq, name, kind, price1,price2,content,image)
+			VALUES(product_seq.nextval, #{name}, #{kind}, #{price1}, #{price2}, #{content}, #{image})
+		]]>
+	</insert>
+	<update id="updateProduct">
+		<![CDATA[
+			UPDATE product
+			SET name = #{name}, 
+				price1 = #{price1}, 
+				price2 = #{price2}, 
+				useyn = #{useyn}, 
+				content = #{content}, 
+				image = #{image} 
+			WHERE 
+				pseq = #{pseq}
+		]]>
+	</update>
+
+	<delete id="deleteProduct">
+		<![CDATA[
+			DELETE FROM product WHERE
+			pseq = #{pseq}
+		]]>
+	</delete>
+	<select id="getProductList" resultType="product">
+		<![CDATA[
+			SELECT * FROM product ORDER BY pseq ASC
+		]]>
+	</select>
+	
+	<select id="listNewProduct" resultType="product">
+		<![CDATA[
+			SELECT * FROM new_pro_view
+		]]>
+	</select>
+	
+	<select id="listBestProduct" resultType="product">
+		<![CDATA[
+			SELECT * FROM best_pro_view
+		]]>
+	</select>
+	
+	<select id="listKindProduct" parameterType="String" resultType="product">
+		<![CDATA[
+			SELECT * FROM product where kind=#{kind}
+		]]>
+	</select>
+	<select id="getList" resultType="product">
+		<![CDATA[
+			SELECT  pseq,
+			        name,
+			        price1,
+			        price2,
+			        regdate,
+			        useyn
+			FROM (
+			        SELECT  pseq,
+			                name,
+			                price1,
+			                price2,
+			                regdate,
+			                useyn,
+			                row_number() OVER(ORDER BY pseq ASC) AS RNUM
+			        FROM product
+			                    )MP
+			WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+			ORDER BY pseq ASC
+		]]>
+	</select>
+	<select id="listCount" resultType="int">
+		<![CDATA[
+			SELECT COUNT(pseq)
+			FROM product
+			WHERE pseq > 0
+		    AND pseq > 0
+		]]>
+	</select>
+
+</mapper>

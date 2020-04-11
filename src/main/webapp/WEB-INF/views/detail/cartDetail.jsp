@@ -8,7 +8,7 @@
     <form name="formm" method="post">
       <table id="cartList">
       <tr>
-        <th>주문일자</th> <th>주문번호</th> <th>상품명</th> <th>결제 금액</th> <th>주문 상세</th> </th>    
+        <th>주문일자</th> <th>주문번호</th> <th>상품명</th> <th>결제 금액</th> <th>주문 상세</th>  
       </tr>
       <c:forEach items="${orderList}"  var="orderVO">
       <tr>  

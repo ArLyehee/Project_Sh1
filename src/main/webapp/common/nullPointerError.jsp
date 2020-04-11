@@ -7,9 +7,9 @@
 <title>기본 에러 화면</title>
 </head>
 <body>
-<tabel style="width:100%; border:1">
+<table style="width:100%; border:1">
 	<tr><td align="center" bgcolor="orange"><b>기본 에러 화면입니다.</b></td></tr>
-</tabel>
+</table>
 <br>
 <table style="width: 100%; border:1">
 <tr>

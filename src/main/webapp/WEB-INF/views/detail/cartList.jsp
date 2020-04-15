@@ -19,9 +19,11 @@
         <c:forEach items="${cartList}"  var="cartVO">
         <tr>      
           <td>
-            <a href="product_detail?pseq=${cartVO.pseq}">
-              <h3> ${cartVO.pname} </h3>              
-            </a>    
+            <h3>
+	            <a href="product_detail?pseq=${cartVO.pseq}">
+	               ${cartVO.pname}              
+	            </a>
+            </h3> 
           </td>
           <td> ${cartVO.quantity} </td>
           <td> 
@@ -39,7 +41,7 @@
           <th colspan="2"> 
             <fmt:formatNumber value="${totalPrice}" type="currency"/><br>
           </th> 
-          <th><a href="#" onclick="go_cart_delete()"><h3>삭제하기</h3></a></th>                       
+          <th><h3><a href="#" onclick="go_cart_delete()">삭제하기</a></h3></th>                       
         </tr> 
       </table> 
     </c:otherwise>  

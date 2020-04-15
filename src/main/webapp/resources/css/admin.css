@@ -175,10 +175,10 @@ th {
 }
 
 table#productList {
-	border-collapse: collapse; /* border 사이의 간격 없앰 */
+	border-collapse: collapse; 
 	border-top: 2px solid #333;
 	border-bottom: 1px solid #333;
-	width: 80%; /* 전체 테이블 길이 설정 */
+	width: 80%;
 	margin-left: 100px;
 	margin-bottom: 20px;
 }
@@ -188,7 +188,7 @@ th, td{
 	
 }
 
-#productList td{ /* 테이블의 th 와 td 마진과 패딩 지정 */
+#productList td{
 	padding-right: 40px;
 	text-align: right;
 }
@@ -199,17 +199,14 @@ th, td{
 }
 
 table#orderList {
-	border-collapse: collapse; /* border 사이의 간격 없앰 */
+	border-collapse: collapse; 
 	border-top: 2px solid #333;
 	border-bottom: 1px solid #333;
-	width: 85%; /* 전체 테이블 길이 설정 */
+	width: 85%; 
 	margin-left: 100px;
 	margin-bottom: 20px;
 }
 
-/* table#orderList th,td {
-	text-align: center;
-} */
 
 #register {
 	margin-left: 300px;
@@ -382,7 +379,7 @@ nav#sub_menu ul {
 	margin-left: -20px;
 }
 
-/* 영화-> 리뷰 테이블 css */
+
 div.reviewdiv {
 	font-family: "맑은 고딕";
 	font-size: 15px;

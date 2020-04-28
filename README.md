@@ -1,6 +1,6 @@
 # 쇼핑몰 프로젝트
 <li>프로젝트 만들 당시 사용했던 자바 버전-12.0.1 (1.8)</li>
-<li>개발환경:Eclipse IDE 2019-09,DB:Orcle Sql Developer를 사용했습니다.<br>
+<li>개발환경:Eclipse IDE 2019-09,DB:Oracle Sql Developer를 사용했습니다.<br>
 (pom.xml 에 DB연동 파일설정을 절대경로로 적어놔서 따로 파일을 만들어 줘야 합니다.)</li>
 <li>프레임워크  - Spring 3.0 </li>
 

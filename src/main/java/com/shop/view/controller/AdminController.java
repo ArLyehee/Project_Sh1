@@ -218,7 +218,7 @@ public class AdminController {
 		  if(!upload.isEmpty()) {
 			  String fileName = upload.getOriginalFilename();
 			  vo.setImage(fileName);
-			  upload.transferTo(new File("C:\\Users\\Administrator\\workspace\\show2\\src\\main\\webapp\\WEB-INF\\views\\admin\\images"+fileName));
+			  upload.transferTo(new File("C:\\Users\\Administrator\\workspace\\shop\\src\\main\\webapp\\WEB-INF\\views\\admin\\images"+fileName));
 		  }
 		  
 
@@ -240,7 +240,7 @@ public class AdminController {
 		  if(!upload.isEmpty()) {
 			  String fileName = upload.getOriginalFilename();
 			  vo.setImage(fileName);
-			  upload.transferTo(new File("C:\\Users\\Administrator\\workspace\\show2\\src\\main\\webapp\\WEB-INF\\views\\admin\\images"+fileName));
+			  upload.transferTo(new File("C:\\Users\\Administrator\\workspace\\shop\\src\\main\\webapp\\WEB-INF\\views\\admin\\images"+fileName));
 		  }
 		  
 
